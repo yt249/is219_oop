@@ -11,7 +11,7 @@ I - Interface Segregation Principle <br>
 D - Dependency Inversion Principle  
 <br>
 
-<h3><u>S - Single Responsibility Principle</u></h3> 
+<u><h3>S - Single Responsibility Principle</h3></u>
 
 <b>is219_calculator repo - Operations/Calculator.js</b>:
 <pre>
