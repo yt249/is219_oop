@@ -1,5 +1,5 @@
-
-
+[![Build Status](https://travis-ci.org/yt249/is219_oop.svg?branch=master)](https://travis-ci.org/yt249/is219_oop)
+[![Coverage Status](https://coveralls.io/repos/github/yt249/is219_oop/badge.svg?branch=master)](https://coveralls.io/github/yt249/is219_oop?branch=master)
 <h2>What is SOLID?</h2>
 
 <br>
