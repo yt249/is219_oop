@@ -1,7 +1,7 @@
 [![Build Status](https://travis-ci.org/yt249/is219_oop.svg?branch=master)](https://travis-ci.org/yt249/is219_oop)
 [![Coverage Status](https://coveralls.io/repos/github/yt249/is219_oop/badge.svg?branch=master)](https://coveralls.io/github/yt249/is219_oop?branch=master)
 
-<h2>What is SOLID?</h2>
+**<h2 align="center"> What is S.O.L.I.D.?</h2>**
 
 <br>
 S - Single Responsibility Principle <br>
@@ -57,7 +57,7 @@ When we implement the high-level classes, we do not have to worry about the low-
 classes. We do not have to change anything in the code as long as the abstraction class 
 does not change.   
 
-<h2>Other 4 Principles?</h2>
+**<h2 align="center"> Other 4 Principles?</h2>**
 
 <h3><u><b>1. Encapsulation</b></u><br></h3>
 <b>Encapsulation.js</b>: <br>
