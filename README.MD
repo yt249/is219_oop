@@ -1,6 +1,74 @@
 [![Build Status](https://travis-ci.org/yt249/is219_oop.svg?branch=master)](https://travis-ci.org/yt249/is219_oop)
 [![Coverage Status](https://coveralls.io/repos/github/yt249/is219_oop/badge.svg?branch=master)](https://coveralls.io/github/yt249/is219_oop?branch=master)
 
+**<h1 align="center"> Design Patterns </h1>**
+
+<h3><u>1.Facade(Structural)</u></h3>
+<p>In is219_calculator repo src/Facade.js:</p>
+<p>Facade structural pattern hopes to create a simple interface that can deal with 
+multiple services. Things that a calculator does is actually a simple goal,
+"Calculate the results", so i combine all kinds of operator into a function, by calling 
+this function once with the given numbers and operator, the calculator can get the return
+directly.</p>
+
+<pre>
+class Operator{
+    CalculateResults(a, b, op){
+        if (op === '+'){
+            return a + b;
+        }
+        else if (op === '-'){
+            return a - b
+        }
+        else if (op === 'x'){
+            return a * b
+        }
+        else if (op === '/'){
+            return a / b
+        }
+        else{
+            return "error"
+        }
+    }
+}
+</pre> 
+
+<h3><u>2. Strategy(Behavior) & 3.Abstract(Creational)</u></h3> 
+<p>In is219_calculator repo - src/Operations/StrategyExample.js: </p>
+
+<p>Strategy pattern suggest to take something that does specific stuff in different ways out off the same class
+and extract all those algorithm into separate classes. In this case, those math operations are returning 2 numbers 
+but with different operations, so we can have the original class links strategy object instead of executing it on 
+its own. I use multiple strategies to execute various arithmetic  operations. </p>
+
+<p>Abstract Factory allows you produce objects that share similar property without specify the concrete classes.
+We can use the same example because all operations methods are returning value after the calculation,
+so we have an execute function that returns the result in every operator methods.</p>
+
+<pre>
+class Strategy{
+    execute(){}
+}
+
+class ConcreteStrategyAdd extends Strategy{
+    constructor() {
+        super();
+    }
+    execute(a,b){
+        return a+b;
+    }
+}
+
+class ConcreteStrategySubtract extends Strategy{
+    constructor() {
+        super();
+    }
+    execute(a,b){
+        return a-b;
+    }
+}
+</pre>
+
 **<h1 align="center"> What is S.O.L.I.D.?</h1>**
 
 <br>
