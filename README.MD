@@ -3,7 +3,7 @@
 
 **<h1 align="center"> Design Patterns </h1>**
 
-<h3><u>1.Structural - Facade</u></h3>
+<h3><u>1. Structural - Facade Pattern</u></h3>
 <p>In is219_csv_reader repo src/CSV/Reader.js:</p>
 <p>Facade structural pattern hopes to hide all the complicated code for a simple 
 function call. For this reader class, the user can simply enter the filepath of 
@@ -34,7 +34,7 @@ or reading through it in the code. </p>
      }
 </pre> 
 
-<h3><u>2. Strategy(Behavior)</u></h3> 
+<h3><u>2. Behavior - Strategy Pattern</u></h3> 
 <p>In is219_calculator repo - src/Operations/StrategyExample.js: </p>
 
 <p>Strategy pattern suggest to take something that does specific stuff in different ways out off the same class
@@ -54,7 +54,7 @@ and we can put in any operations we want. </p>
      }
 </pre>
 
-<h3><u>3.Creational - Prototype</u></h3> 
+<h3><u>3. Creational - Prototype Pattern</u></h3> 
 <p>In is219_calculator repo src/Calculator.js:</p>
 For this pattern, I will implement a Copy() function. 
 This function will take case the work whenever it is needed to be 
