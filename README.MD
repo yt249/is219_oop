@@ -3,70 +3,67 @@
 
 **<h1 align="center"> Design Patterns </h1>**
 
-<h3><u>1.Facade(Structural)</u></h3>
-<p>In is219_calculator repo src/Facade.js:</p>
-<p>Facade structural pattern hopes to create a simple interface that can deal with 
-multiple services. Things that a calculator does is actually a simple goal,
-"Calculate the results", so i combine all kinds of operator into a function, by calling 
-this function once with the given numbers and operator, the calculator can get the return
-directly.</p>
+<h3><u>1.Structural - Facade</u></h3>
+<p>In is219_csv_reader repo src/CSV/Reader.js:</p>
+<p>Facade structural pattern hopes to hide all the complicated code for a simple 
+function call. For this reader class, the user can simply enter the filepath of 
+file and the Model to this function to get the content in csv type without actually opening the file 
+or reading through it in the code. </p>
 
-<pre>
-class Operator{
-    CalculateResults(a, b, op){
-        if (op === '+'){
-            return a + b;
-        }
-        else if (op === '-'){
-            return a - b
-        }
-        else if (op === 'x'){
-            return a * b
-        }
-        else if (op === '/'){
-            return a / b
-        }
-        else{
-            return "error"
-        }
-    }
-}
+<pre>class Reader{
+         static printRecords(filename, Model){
+             const filePath = require('../FilePath');
+             const fs = require('fs');
+             const parse = require('csv-parse/lib/sync');
+     
+             let absolutePath = filePath.getAbsolutePath(filename);
+             const options = {
+                 columns: true,
+                 delimiter: ',',
+                 trim: true,
+                 skip_empty_lines: true
+             };
+             let contents = fs.readFileSync(absolutePath);
+             const record = parse(contents, options);
+             let list = Array();
+             record.forEach(function (data) {
+                 list.push(Model.create(data));
+             });
+             return list;
+         }
+     }
 </pre> 
 
-<h3><u>2. Strategy(Behavior) & 3.Abstract(Creational)</u></h3> 
+<h3><u>2. Strategy(Behavior)</u></h3> 
 <p>In is219_calculator repo - src/Operations/StrategyExample.js: </p>
 
 <p>Strategy pattern suggest to take something that does specific stuff in different ways out off the same class
-and extract all those algorithm into separate classes. In this case, those math operations are returning 2 numbers 
-but with different operations, so we can have the original class links strategy object instead of executing it on 
-its own. I use multiple strategies to execute various arithmetic  operations. </p>
+and extract all those algorithm into separate classes, so that we can only call the needed one if we need. 
+In this case, the Calculation class is taking in any kind of operation functions as op given 2 parameters,
+and we can put in any operations we want. </p>
 
-<p>Abstract Factory allows you produce objects that share similar property without specify the concrete classes.
-We can use the same example because all operations methods are returning value after the calculation,
-so we have an execute function that returns the result in every operator methods.</p>
+<pre>class Calculation{
+         constructor(a, b, operation){
+             this.a = a;
+             this.b = b;
+             this.operation = operation;
+         }
+         GetResults(){
+             return this.operation(this.a,this.b);
+         }
+     }
+</pre>
 
-<pre>
-class Strategy{
-    execute(){}
-}
-
-class ConcreteStrategyAdd extends Strategy{
-    constructor() {
-        super();
+<h3><u>3.Creational - Prototype</u></h3> 
+<p>In is219_calculator repo src/Calculator.js:</p>
+For this pattern, I will implement a Copy() function. 
+This function will take case the work whenever it is needed to be 
+copied to a new Calculator.
+<pre> static Copy() {
+        let newCalc = new Calculator();
+        newCalc.Calculations = this.Calculations;
+        return newCalc;
     }
-    execute(a,b){
-        return a+b;
-    }
-}
-
-class ConcreteStrategySubtract extends Strategy{
-    constructor() {
-        super();
-    }
-    execute(a,b){
-        return a-b;
-    }
-}
 </pre>
 
 **<h1 align="center"> What is S.O.L.I.D.?</h1>**
